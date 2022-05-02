@@ -1,4 +1,4 @@
-# React tutorial
+# React Tutorial
 by [array id](https://www.youtube.com/watch?v=JS5w4rUbjQE).
 
 List of Branch:
