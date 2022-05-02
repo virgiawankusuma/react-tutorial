@@ -11,9 +11,10 @@
 <body>
     <div id="root"></div>
 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script>
+    <script type="text/babel">
         /**
         const root = document.querySelector('#root');
         
@@ -25,13 +26,13 @@
         **/
         const root = document.querySelector('#root');
 
-        const element = React.createElement(
-            'ul',
-            { className: 'list' },
-            React.createElement('li', null, 'Apple'),
-            React.createElement('li', null, 'Banana'),
-            React.createElement('li', null, 'Cherry'),
-        );
+        const element = (
+            <ul>
+                <li>Apple</li>
+                <li>Orange</li>
+                <li>Banana</li>
+            </ul>
+        )
 
         ReactDOM.render(element, root); 
     </script>
