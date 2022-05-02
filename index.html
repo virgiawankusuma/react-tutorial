@@ -25,17 +25,19 @@
         **/
         const root = document.querySelector('#root');
 
-        const p1 = React.createElement('p', {
-            children: 'This is a paragraph 1'
+        const li = React.createElement('li', {
+            children: 'Apple'
+        });
+        const li2 = React.createElement('li', {
+            children: 'Orange'
+        });
+        const li3 = React.createElement('li', {
+            children: 'Banana'
         });
 
-        const p2 = React.createElement('p', {
-            children: 'This is a paragraph 2'
-        });
-
-        const element = React.createElement(React.Fragment, {
-            children: [p1, p2],
-        });
+        const element = React.createElement('ul', {
+            children: [li, li2, li3]
+        })
 
         ReactDOM.render(element, root); 
     </script>
