@@ -25,17 +25,13 @@
         **/
         const root = document.querySelector('#root');
 
-        const li = React.createElement('li', {
-            children: 'Apple'
-        });
-        const li2 = React.createElement('li', {
-            children: 'Orange'
-        });
-        const li3 = React.createElement('li', {
-            children: 'Banana'
-        });
-
-        const element = React.createElement('ul', null, li, li2, li3);
+        const element = React.createElement(
+            'ul',
+            { className: 'list' },
+            React.createElement('li', null, 'Apple'),
+            React.createElement('li', null, 'Banana'),
+            React.createElement('li', null, 'Cherry'),
+        );
 
         ReactDOM.render(element, root); 
     </script>
