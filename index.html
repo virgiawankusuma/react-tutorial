@@ -27,7 +27,12 @@
         const root = document.querySelector('#root');
 
         const name = 'Virgiawan';
-        const element = <h1>Hello {name}, date: {new Date().toLocaleDateString()}</h1>;
+
+        function ngegas(text) {
+            return text.toUpperCase();
+        }
+
+        const element = <h1>Hello {ngegas(name)}</h1>;
 
         ReactDOM.render(element, root); 
     </script>
