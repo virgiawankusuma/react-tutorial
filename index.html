@@ -26,15 +26,15 @@
         **/
         const root = document.querySelector('#root');
 
-        function halo(name) {
-            return <p>Halo <b>{name}</b></p>
+        function Halo(props) {
+            return <p>Halo <b>{props.name}</b></p>
         }
 
         const element = (
             <>
-                {halo('React')}
-                {halo('Virgiawan')}
-                {halo('Eriel')}
+                <Halo name="Virgiawan" />
+                <Halo name="React" />
+                <Halo name="Eriel" />
             </>
         )
 
