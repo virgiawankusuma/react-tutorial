@@ -4,8 +4,9 @@
   "description": "for learning react",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir public",
-    "start": "lite-server --baseDir public"
+    "build": "babel src --out-dir public -w",
+    "serve": "lite-server --baseDir public",
+    "start": "npm run build && npm run serve"
     
   },
   "repository": {
