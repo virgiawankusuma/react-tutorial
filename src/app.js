@@ -2,19 +2,19 @@ const root = document.querySelector('#root');
 
 
 function App() {
-    const [count, updateCount] = React.useState(0);
+    const [count, setCount] = React.useState(0);
 
     return (
         <>
             <button onClick={
                 function () {
-                    updateCount(count - 1);
+                    setCount(count - 1);
                 }
             }> - </button>
             <span>{count}</span>
             <button onClick={
                 function () {
-                    updateCount(count + 1);
+                    setCount(count + 1);
                 }
             }> + </button>
         </>
