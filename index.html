@@ -26,19 +26,20 @@
         **/
         const root = document.querySelector('#root');
 
-        function Halo(props) {
-            return <p>Halo <b>{props.name}</b></p>
+        function tick() {
+            const element = (
+                <div>
+                    <h1>Jam Sekarang</h1>
+                    <h2>{new Date().toLocaleTimeString()}</h2>
+                </div>
+            )
+
+            ReactDOM.render(element, root);
         }
 
-        const element = (
-            <>
-                <Halo name="Virgiawan" />
-                <Halo name="React" />
-                <Halo name="Eriel" />
-            </>
-        )
-
-        ReactDOM.render(element, root); 
+        setInterval(function () {
+            tick();
+        }, 1000);
     </script>
 </body>
 
