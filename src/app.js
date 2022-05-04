@@ -2,10 +2,7 @@ const root = document.querySelector('#root');
 
 
 function App() {
-    const state = React.useState(0);
-
-    const count = state[0];
-    const updateCount = state[1];
+    const [count, updateCount] = React.useState(0);
 
     return (
         <>
