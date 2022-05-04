@@ -1,10 +1,10 @@
 const root = document.querySelector('#root');
-const element =
-/*#__PURE__*/
-// button onclick
-React.createElement("button", {
-  onClick: function () {
-    alert('I was clicked');
-  }
-}, "Click me");
+
+function clicked() {
+  alert('I was clicked!');
+}
+
+const element = /*#__PURE__*/React.createElement("button", {
+  onClick: clicked
+}, " Click me");
 ReactDOM.render(element, root);

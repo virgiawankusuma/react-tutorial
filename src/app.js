@@ -1,10 +1,11 @@
 const root = document.querySelector('#root');
 
+function clicked() {
+    alert('I was clicked!');
+}
+
 const element = (
-    // button onclick
-    <button onClick={function () {
-        alert('I was clicked');
-    }}>Click me</button>
+    <button onClick={clicked} > Click me</button>
 )
 
 ReactDOM.render(element, root);
