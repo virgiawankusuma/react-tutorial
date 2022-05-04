@@ -1,18 +1,10 @@
-/**
 const root = document.querySelector('#root');
-
-const element = document.createElement('h1');
-element.textContent = 'Hello World with JS';
-element.className = 'heading-1';
-
-root.appendChild(element);
-**/
-const root = document.querySelector('#root');
-
-const className = "box";
 
 const element = (
-    <div className={className}></div>
+    // button onclick
+    <button onClick={function () {
+        alert('I was clicked');
+    }}>Click me</button>
 )
 
 ReactDOM.render(element, root);
