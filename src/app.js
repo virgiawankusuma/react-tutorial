@@ -9,17 +9,14 @@ root.appendChild(element);
 **/
 const root = document.querySelector('#root');
 
-function tick() {
-    const element = (
-        <div>
-            <h1>Jam Sekarang</h1>
-            <h2>{new Date().toLocaleTimeString()}</h2>
-        </div>
-    )
+const element = (
+    <div style={{
+        width: 200,
+        height: 200,
+        backgroundColor: 'blue'
+    }}>
 
-    ReactDOM.render(element, root);
-}
+    </div>
+)
 
-setInterval(function () {
-    tick();
-}, 1000);
+ReactDOM.render(element, root);
