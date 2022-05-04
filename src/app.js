@@ -1,11 +1,7 @@
 const root = document.querySelector('#root');
 
-function clicked(msg) {
-    alert(msg);
+function App() {
+    return <h1>React Element</h1>
 }
 
-const element = (
-    <button onClick={clicked.bind(this, 'I was clicked')} > Click me</button>
-)
-
-ReactDOM.render(element, root);
+ReactDOM.render(<App />, root);
