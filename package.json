@@ -4,7 +4,9 @@
   "description": "for learning react",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir public",
+    "start": "lite-server --baseDir public"
+    
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,7 @@
     "@babel/core": "^7.17.10",
     "@babel/preset-react": "^7.16.7"
   },
-  "scripts": {
-    "build": "babel src --out-dir public"
+  "dependencies": {
+    "lite-server": "^2.6.1"
   }
 }
