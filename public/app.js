@@ -8,7 +8,8 @@ element.className = 'heading-1';
 root.appendChild(element);
 **/
 const root = document.querySelector('#root');
+const className = "box";
 const element = /*#__PURE__*/React.createElement("div", {
-  className: "box"
+  className: className
 });
 ReactDOM.render(element, root);

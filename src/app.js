@@ -9,8 +9,10 @@ root.appendChild(element);
 **/
 const root = document.querySelector('#root');
 
+const className = "box";
+
 const element = (
-    <div className="box"></div>
+    <div className={className}></div>
 )
 
 ReactDOM.render(element, root);
