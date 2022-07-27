@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>Application</h1>
-      <p>{login ? <b>Kamu udah login</b> : ''}</p>
+      <p>{login === true && <b>Kamu udah login</b>}</p>
       <button onClick={setLogin.bind(this, true)}>Login</button>
     </>
   );
