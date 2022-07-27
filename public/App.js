@@ -1,11 +1,45 @@
-const root = document.querySelector("#root");
+const root = document.querySelector('#root');
 
 function App() {
   const [diklik, setDiklik] = React.useState(false);
   const [count, setCount] = React.useState(0);
+  /**
+   * useEffect all state
+  React.useEffect(
+    function () {
+      console.log("exec");
+    }
+  );
+   */
+
+  /**
+   * useEffect specific state
+  React.useEffect(
+    function () {
+      console.log("exec");
+    },
+    [diklik]
+  );
+   */
+
+  /**
+   * useEffect initialize 1 time using empty array
+  React.useEffect(
+    function () {
+      console.log("exec");
+    },
+    [diklik]
+  );
+   */
+
+  /** destroy when mount new component aka Cleanup */
+
   React.useEffect(function () {
-    console.log(document.getElementById("judul"));
-  }, [diklik]);
+    console.log('init carousel');
+    return function () {
+      console.log('destroy');
+    };
+  });
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
     id: "judul"
   }, "Ini adalah judul"), /*#__PURE__*/React.createElement("button", {
