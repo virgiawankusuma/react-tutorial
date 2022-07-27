@@ -1,30 +1,24 @@
 const root = document.querySelector("#root");
 
 function App() {
-  /*
-  const state = React.useState(2);
-  const count = state[0];
-  const updateCount = state[1];
-  */
- 
-  /**
-   * Destructuring
-   */
+  const [diklik, setDiklik] = React.useState(false);
   const [count, setCount] = React.useState(0);
+
+  React.useEffect(
+    function () {
+      console.log(document.getElementById("judul"));
+    },
+    [diklik]
+  );
 
   return (
     <>
-      <button
-        onClick={setCount.bind(this, count - 1)}  
-      >-
-      </button>
+      <h1 id="judul">Ini adalah judul</h1>
+      <button onClick={setDiklik.bind(this, true)}>Klik aku</button>
+      <button onClick={setCount.bind(this, count + 1)}>Tambah</button>
       <span>{count}</span>
-      <button
-        onClick={setCount.bind(this, count + 1)}  
-      >+
-      </button>
     </>
-  )
+  );
 }
 
 ReactDOM.render(<App />, root);
