@@ -1,19 +1,21 @@
-/**
-const root = document.querySelector('#root');
-
-const element = document.createElement('h1');
-element.textContent = 'Hello World with JS';
-element.className = 'heading-1';
-
-root.appendChild(element);
-**/
 const root = document.querySelector("#root");
 
-function padaSaatAkuDiklik(msg) {
-  alert(msg);
+function App() {
+  /*
+  const state = React.useState(2);
+  const count = state[0];
+  const updateCount = state[1];
+  */
+
+  /**
+   * Destructuring
+   */
+  const [count, setCount] = React.useState(0);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+    onClick: setCount.bind(this, count - 1)
+  }, "-"), /*#__PURE__*/React.createElement("span", null, count), /*#__PURE__*/React.createElement("button", {
+    onClick: setCount.bind(this, count + 1)
+  }, "+"));
 }
 
-const element = /*#__PURE__*/React.createElement("button", {
-  onClick: padaSaatAkuDiklik.bind(this, 'coba')
-}, "Click Me");
-ReactDOM.render(element, root);
+ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

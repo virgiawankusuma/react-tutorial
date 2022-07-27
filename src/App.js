@@ -1,22 +1,30 @@
-/**
-const root = document.querySelector('#root');
-
-const element = document.createElement('h1');
-element.textContent = 'Hello World with JS';
-element.className = 'heading-1';
-
-root.appendChild(element);
-**/
 const root = document.querySelector("#root");
 
-function padaSaatAkuDiklik(msg) {
-  alert(msg);  
+function App() {
+  /*
+  const state = React.useState(2);
+  const count = state[0];
+  const updateCount = state[1];
+  */
+ 
+  /**
+   * Destructuring
+   */
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <>
+      <button
+        onClick={setCount.bind(this, count - 1)}  
+      >-
+      </button>
+      <span>{count}</span>
+      <button
+        onClick={setCount.bind(this, count + 1)}  
+      >+
+      </button>
+    </>
+  )
 }
 
-const element = ( 
-  <button onClick={padaSaatAkuDiklik.bind(this,'coba')}>
-    Click Me
-  </button>
-);
-
-ReactDOM.render(element, root);
+ReactDOM.render(<App />, root);
