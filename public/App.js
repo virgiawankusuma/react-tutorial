@@ -9,10 +9,6 @@ root.appendChild(element);
 **/
 const root = document.querySelector("#root");
 const element = /*#__PURE__*/React.createElement("div", {
-  style: {
-    width: 200,
-    height: 200,
-    backgroundColor: 'blue'
-  }
+  className: "box"
 });
 ReactDOM.render(element, root);
