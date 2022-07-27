@@ -9,10 +9,14 @@ root.appendChild(element);
 **/
 const root = document.querySelector("#root");
 
-const element = (
-  <div
-    className="box"
-  ></div>
+function padaSaatAkuDiklik(msg) {
+  alert(msg);  
+}
+
+const element = ( 
+  <button onClick={padaSaatAkuDiklik.bind(this,'coba')}>
+    Click Me
+  </button>
 );
 
 ReactDOM.render(element, root);
