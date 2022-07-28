@@ -1,11 +1,10 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const namaRef = React.useRef(null);
+  const [nama, setName] = React.useState('virgiawan');
 
   function ketikAkuDisubmit(event) {
     event.preventDefault();
-    const nama = namaRef.current.value;
     console.log('Nama: ', nama);
   }
 
@@ -14,7 +13,11 @@ function App() {
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Nama: "), /*#__PURE__*/React.createElement("input", {
     type: "text",
     name: "nama",
-    ref: namaRef
+    value: nama,
+    onChange: function (e) {
+      console.log(e.target.value);
+      setName(e.target.value);
+    }
   })), /*#__PURE__*/React.createElement("button", {
     type: "submit"
   }, "Kirim"));

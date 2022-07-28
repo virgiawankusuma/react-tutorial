@@ -1,11 +1,10 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const namaRef = React.useRef(null);
+  const [nama, setName] = React.useState('virgiawan');
 
   function ketikAkuDisubmit(event) {
     event.preventDefault();
-    const nama = namaRef.current.value;
 
     console.log('Nama: ', nama);
   }
@@ -14,7 +13,15 @@ function App() {
     <form onSubmit={ketikAkuDisubmit}>
       <div>
         <label>Nama: </label>
-        <input type='text' name='nama' ref={namaRef}></input>
+        <input
+          type='text'
+          name='nama'
+          value={nama}
+          onChange={function (e) {
+            console.log(e.target.value);
+            setName(e.target.value);
+          }}
+        ></input>
       </div>
       <button type='submit'>Kirim</button>
     </form>
