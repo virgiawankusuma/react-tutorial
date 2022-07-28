@@ -2,17 +2,19 @@ const root = document.querySelector('#root');
 
 function App() {
   const [login, setLogin] = React.useState(false);
+  const judulRef = React.useRef(null);
 
   React.useEffect(function () {
-    const judul = document.getElementById('judul');
+    console.log(judulRef);
+
     setTimeout(() => {
-      judul.textContent = 'Ubah Judul';
+      judulRef.current.textContent = 'Ubah Judul';
     }, 1000);
   });
 
   return (
     <>
-      <h1 id='judul'>Application</h1>
+      <h1 ref={judulRef}>Application</h1>
     </>
   );
 }

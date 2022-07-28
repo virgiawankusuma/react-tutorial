@@ -2,14 +2,15 @@ const root = document.querySelector('#root');
 
 function App() {
   const [login, setLogin] = React.useState(false);
+  const judulRef = React.useRef(null);
   React.useEffect(function () {
-    const judul = document.getElementById('judul');
+    console.log(judulRef);
     setTimeout(() => {
-      judul.textContent = 'Ubah Judul';
+      judulRef.current.textContent = 'Ubah Judul';
     }, 1000);
   });
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
-    id: "judul"
+    ref: judulRef
   }, "Application"));
 }
 
