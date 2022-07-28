@@ -3,11 +3,16 @@ const root = document.querySelector('#root');
 function App() {
   const [login, setLogin] = React.useState(false);
 
+  React.useEffect(function () {
+    const judul = document.getElementById('judul');
+    setTimeout(() => {
+      judul.textContent = 'Ubah Judul';
+    }, 1000);
+  });
+
   return (
     <>
-      <h1>Application</h1>
-      <p>{login === true && <b>Kamu udah login</b>}</p>
-      <button onClick={setLogin.bind(this, true)}>Login</button>
+      <h1 id='judul'>Application</h1>
     </>
   );
 }
