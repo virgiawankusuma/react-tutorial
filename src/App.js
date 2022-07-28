@@ -1,21 +1,14 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const [login, setLogin] = React.useState(false);
-  const judulRef = React.useRef(null);
-
-  React.useEffect(function () {
-    console.log(judulRef);
-
-    setTimeout(() => {
-      judulRef.current.textContent = 'Ubah Judul';
-    }, 1000);
-  });
+  const fruits = ['Apple', 'Orange', 'Grape', 'Banana'];
 
   return (
-    <>
-      <h1 ref={judulRef}>Application</h1>
-    </>
+    <ul>
+      {fruits.map((fruit, index) => {
+        return <li key={index}>{fruit}</li>;
+      })}
+    </ul>
   );
 }
 
