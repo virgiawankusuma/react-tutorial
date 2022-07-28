@@ -1,25 +1,31 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const [news, setNews] = React.useState([]);
-  const [loading, setLoading] = React.useState([true]);
-  React.useEffect(function () {
-    async function getData() {
-      const request = await fetch('https://api.spaceflightnewsapi.net/v3/blogs'); // console.log(request);
+  const [activity, setActivity] = React.useState();
+  const [todos, setTodos] = React.useState([]);
 
-      const response = await request.json(); // console.log(response);
+  function addTodoHandler(e) {
+    e.preventDefault(); // console.log(activity);
 
-      setNews(response);
-      setLoading(false);
+    setTodos([...todos, activity]);
+    setActivity(''); // console.log(todos);
+  }
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Simple To-Do List"), /*#__PURE__*/React.createElement("form", {
+    onSubmit: addTodoHandler
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    placeholder: "Activity name..",
+    value: activity,
+    onChange: e => {
+      setActivity(e.target.value);
     }
-
-    getData();
-  }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, loading ? /*#__PURE__*/React.createElement("b", null, "Lagi loading..") : /*#__PURE__*/React.createElement("ul", null, news.map(item => {
-    console.log(item);
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "submit"
+  }, "Add")), /*#__PURE__*/React.createElement("ul", null, todos.map((todo, i) => {
     return /*#__PURE__*/React.createElement("li", {
-      key: item.id
-    }, item.title);
+      key: i
+    }, todo);
   })));
 }
 

@@ -1,36 +1,38 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const [news, setNews] = React.useState([]);
-  const [loading, setLoading] = React.useState([true]);
+  const [activity, setActivity] = React.useState();
+  const [todos, setTodos] = React.useState([]);
 
-  React.useEffect(function () {
-    async function getData() {
-      const request = await fetch(
-        'https://api.spaceflightnewsapi.net/v3/blogs'
-      );
-      // console.log(request);
-      const response = await request.json();
+  function addTodoHandler(e) {
+    e.preventDefault();
+    // console.log(activity);
 
-      // console.log(response);
-      setNews(response);
-      setLoading(false);
-    }
-    getData();
-  }, []);
+    setTodos([...todos, activity]);
+    setActivity('');
+    // console.log(todos);
+  }
 
   return (
     <>
-      {loading ? (
-        <b>Lagi loading..</b>
-      ) : (
-        <ul>
-          {news.map((item) => {
-            console.log(item);
-            return <li key={item.id}>{item.title}</li>;
-          })}
-        </ul>
-      )}
+      <h1>Simple To-Do List</h1>
+      <form onSubmit={addTodoHandler}>
+        <input
+          type='text'
+          placeholder='Activity name..'
+          value={activity}
+          onChange={(e) => {
+            setActivity(e.target.value);
+          }}
+        />
+        <button type='submit'>Add</button>
+      </form>
+
+      <ul>
+        {todos.map((todo, i) => {
+          return <li key={i}>{todo}</li>;
+        })}
+      </ul>
     </>
   );
 }
