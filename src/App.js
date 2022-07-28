@@ -4,11 +4,21 @@ function App() {
   const [activity, setActivity] = React.useState();
   const [todos, setTodos] = React.useState([]);
 
+  function generateId() {
+    return Date.now();
+  }
+
   function addTodoHandler(e) {
     e.preventDefault();
     // console.log(activity);
 
-    setTodos([...todos, activity]);
+    setTodos([
+      ...todos,
+      {
+        id: generateId(),
+        activity: activity,
+      },
+    ]);
     setActivity('');
     // console.log(todos);
   }
@@ -29,8 +39,8 @@ function App() {
       </form>
 
       <ul>
-        {todos.map((todo, i) => {
-          return <li key={i}>{todo}</li>;
+        {todos.map((todo) => {
+          return <li key={todo.id}>{todo.activity}</li>;
         })}
       </ul>
     </>

@@ -4,10 +4,17 @@ function App() {
   const [activity, setActivity] = React.useState();
   const [todos, setTodos] = React.useState([]);
 
+  function generateId() {
+    return Date.now();
+  }
+
   function addTodoHandler(e) {
     e.preventDefault(); // console.log(activity);
 
-    setTodos([...todos, activity]);
+    setTodos([...todos, {
+      id: generateId(),
+      activity: activity
+    }]);
     setActivity(''); // console.log(todos);
   }
 
@@ -22,10 +29,10 @@ function App() {
     }
   }), /*#__PURE__*/React.createElement("button", {
     type: "submit"
-  }, "Add")), /*#__PURE__*/React.createElement("ul", null, todos.map((todo, i) => {
+  }, "Add")), /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
     return /*#__PURE__*/React.createElement("li", {
-      key: i
-    }, todo);
+      key: todo.id
+    }, todo.activity);
   })));
 }
 
