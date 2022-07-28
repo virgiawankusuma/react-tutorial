@@ -1,14 +1,23 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const fruits = ['Apple', 'Orange', 'Grape', 'Banana'];
+  const namaRef = React.useRef(null);
+
+  function ketikAkuDisubmit(event) {
+    event.preventDefault();
+    const nama = namaRef.current.value;
+
+    console.log('Nama: ', nama);
+  }
 
   return (
-    <ul>
-      {fruits.map((fruit, index) => {
-        return <li key={index}>{fruit}</li>;
-      })}
-    </ul>
+    <form onSubmit={ketikAkuDisubmit}>
+      <div>
+        <label>Nama: </label>
+        <input type='text' name='nama' ref={namaRef}></input>
+      </div>
+      <button type='submit'>Kirim</button>
+    </form>
   );
 }
 
