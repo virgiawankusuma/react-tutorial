@@ -18,6 +18,16 @@ function App() {
     setActivity(''); // console.log(todos);
   }
 
+  function removeTodoHandler(todoId) {
+    // console.log(todoId);
+    const filteredTodos = todos.filter(todo => {
+      console.log(todoId, todo.id);
+      return todo.id !== todoId;
+    });
+    console.log(filteredTodos);
+    setTodos(filteredTodos);
+  }
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Simple To-Do List"), /*#__PURE__*/React.createElement("form", {
     onSubmit: addTodoHandler
   }, /*#__PURE__*/React.createElement("input", {
@@ -32,7 +42,9 @@ function App() {
   }, "Add")), /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
     return /*#__PURE__*/React.createElement("li", {
       key: todo.id
-    }, todo.activity);
+    }, todo.activity, ' ', /*#__PURE__*/React.createElement("button", {
+      onClick: removeTodoHandler.bind(this, todo.id)
+    }, "Hapus"));
   })));
 }
 

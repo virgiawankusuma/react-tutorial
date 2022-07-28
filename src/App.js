@@ -23,6 +23,17 @@ function App() {
     // console.log(todos);
   }
 
+  function removeTodoHandler(todoId) {
+    // console.log(todoId);
+    const filteredTodos = todos.filter((todo) => {
+      console.log(todoId, todo.id);
+      return todo.id !== todoId;
+    });
+
+    console.log(filteredTodos);
+    setTodos(filteredTodos);
+  }
+
   return (
     <>
       <h1>Simple To-Do List</h1>
@@ -40,7 +51,14 @@ function App() {
 
       <ul>
         {todos.map((todo) => {
-          return <li key={todo.id}>{todo.activity}</li>;
+          return (
+            <li key={todo.id}>
+              {todo.activity}{' '}
+              <button onClick={removeTodoHandler.bind(this, todo.id)}>
+                Hapus
+              </button>
+            </li>
+          );
         })}
       </ul>
     </>
