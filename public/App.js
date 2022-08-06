@@ -37,6 +37,7 @@ function App() {
       activity // activity: activity,
 
     }]);
+    setMessage('');
     setActivity(''); // console.log(todos);
   }
 

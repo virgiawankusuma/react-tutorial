@@ -44,6 +44,7 @@ function App() {
         // activity: activity,
       },
     ]);
+    setMessage('');
     setActivity('');
     // console.log(todos);
   }
