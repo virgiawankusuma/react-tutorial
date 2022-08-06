@@ -17,6 +17,8 @@ function App() {
     // empty field validation 
     if (!activity) return setMessage('The field can\'t be blank');
 
+    setMessage('');
+    
     if(edit.id) {
       // console.log('edit');
       const updatedTodo = {
@@ -44,7 +46,6 @@ function App() {
         // activity: activity,
       },
     ]);
-    setMessage('');
     setActivity('');
     // console.log(todos);
   }
