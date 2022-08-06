@@ -22,7 +22,8 @@ function App() {
     if(edit.id) {
       // console.log('edit');
       const updatedTodo = {
-        id: edit.id,
+        // id: edit.id,
+        ...edit,
         activity
       }
 
@@ -42,8 +43,9 @@ function App() {
       ...todos,
       {
         id: generateId(),
-        activity
+        activity,
         // activity: activity,
+        done: false
       },
     ]);
     setActivity('');
@@ -74,6 +76,26 @@ function App() {
     // console.log('discard edit');
     setEdit({}); // for clear edit.id
     setActivity('');
+  }
+
+  function doneTodoHandler(todo) {
+    // console.log(todo);
+    const updatedTodo = {
+      // id: todo.id,
+      // activity,
+      ...todo,
+      done: todo.done ? false : true,
+    }
+
+    // return console.log(updatedTodo);
+
+    const editTodoIndex = todos.findIndex((currentTodo) => currentTodo.id == todo.id);
+
+    const updatedTodos = [...todos];
+    updatedTodos[editTodoIndex] = updatedTodo;
+    // console.log(updatedTodo);
+
+    setTodos(updatedTodos);
   }
 
   return (
@@ -108,7 +130,8 @@ function App() {
           {todos.map((todo) => {
             return (
               <li key={todo.id}>
-                {todo.activity}{' '}
+                <input type="checkbox" onChange={doneTodoHandler.bind(this, todo)}></input>
+                {todo.activity} ({todo.done ? 'Done' : 'Undone'})
                 <button onClick={editTodoHandler.bind(this, todo)}>
                   Edit
                 </button>

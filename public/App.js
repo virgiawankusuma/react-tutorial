@@ -19,8 +19,8 @@ function App() {
 
     if (edit.id) {
       // console.log('edit');
-      const updatedTodo = {
-        id: edit.id,
+      const updatedTodo = { // id: edit.id,
+        ...edit,
         activity
       };
       const editTodoIndex = todos.findIndex(todo => {
@@ -35,8 +35,9 @@ function App() {
 
     setTodos([...todos, {
       id: generateId(),
-      activity // activity: activity,
-
+      activity,
+      // activity: activity,
+      done: false
     }]);
     setActivity(''); // console.log(todos);
   }
@@ -66,6 +67,21 @@ function App() {
     setActivity('');
   }
 
+  function doneTodoHandler(todo) {
+    // console.log(todo);
+    const updatedTodo = { // id: todo.id,
+      // activity,
+      ...todo,
+      done: todo.done ? false : true
+    }; // return console.log(updatedTodo);
+
+    const editTodoIndex = todos.findIndex(currentTodo => currentTodo.id == todo.id);
+    const updatedTodos = [...todos];
+    updatedTodos[editTodoIndex] = updatedTodo; // console.log(updatedTodo);
+
+    setTodos(updatedTodos);
+  }
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Simple To-Do List"), /*#__PURE__*/React.createElement("form", {
     onSubmit: saveTodoHandler
   }, message && /*#__PURE__*/React.createElement("span", {
@@ -88,7 +104,10 @@ function App() {
   }, "Discard")), todos.length > 0 ? /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
     return /*#__PURE__*/React.createElement("li", {
       key: todo.id
-    }, todo.activity, ' ', /*#__PURE__*/React.createElement("button", {
+    }, /*#__PURE__*/React.createElement("input", {
+      type: "checkbox",
+      onChange: doneTodoHandler.bind(this, todo)
+    }), todo.activity, " (", todo.done ? 'Done' : 'Undone', ")", /*#__PURE__*/React.createElement("button", {
       onClick: editTodoHandler.bind(this, todo)
     }, "Edit"), /*#__PURE__*/React.createElement("button", {
       onClick: removeTodoHandler.bind(this, todo.id)
