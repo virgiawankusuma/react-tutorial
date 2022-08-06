@@ -130,7 +130,11 @@ function App() {
           {todos.map((todo) => {
             return (
               <li key={todo.id}>
-                <input type="checkbox" onChange={doneTodoHandler.bind(this, todo)}></input>
+                <input 
+                  type="checkbox"
+                  checked={todo.done}
+                  onChange={doneTodoHandler.bind(this, todo)}
+                />
                 {todo.activity} ({todo.done ? 'Done' : 'Undone'})
                 <button onClick={editTodoHandler.bind(this, todo)}>
                   Edit

@@ -106,6 +106,7 @@ function App() {
       key: todo.id
     }, /*#__PURE__*/React.createElement("input", {
       type: "checkbox",
+      checked: todo.done,
       onChange: doneTodoHandler.bind(this, todo)
     }), todo.activity, " (", todo.done ? 'Done' : 'Undone', ")", /*#__PURE__*/React.createElement("button", {
       onClick: editTodoHandler.bind(this, todo)
