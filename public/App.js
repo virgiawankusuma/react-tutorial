@@ -84,7 +84,7 @@ function App() {
   }, edit.id ? 'Update' : 'Add'), edit.id && /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: discardEditHandler
-  }, "Discard")), /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
+  }, "Discard")), todos.length > 0 ? /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
     return /*#__PURE__*/React.createElement("li", {
       key: todo.id
     }, todo.activity, ' ', /*#__PURE__*/React.createElement("button", {
@@ -92,7 +92,7 @@ function App() {
     }, "Edit"), /*#__PURE__*/React.createElement("button", {
       onClick: removeTodoHandler.bind(this, todo.id)
     }, "Hapus"));
-  })));
+  })) : /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("em", null, "Todo's is still empty")));
 }
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

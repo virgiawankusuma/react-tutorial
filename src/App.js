@@ -101,21 +101,23 @@ function App() {
         }
       </form>
 
-      <ul>
-        {todos.map((todo) => {
-          return (
-            <li key={todo.id}>
-              {todo.activity}{' '}
-              <button onClick={editTodoHandler.bind(this, todo)}>
-                Edit
-              </button>
-              <button onClick={removeTodoHandler.bind(this, todo.id)}>
-                Hapus
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      { todos.length > 0 ? (
+        <ul>
+          {todos.map((todo) => {
+            return (
+              <li key={todo.id}>
+                {todo.activity}{' '}
+                <button onClick={editTodoHandler.bind(this, todo)}>
+                  Edit
+                </button>
+                <button onClick={removeTodoHandler.bind(this, todo.id)}>
+                  Hapus
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      ) : <p><em>Todo's is still empty</em></p>}
     </>
   );
 }
