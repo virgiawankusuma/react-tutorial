@@ -24,7 +24,8 @@ function App() {
       const updatedTodos = [...todos];
       updatedTodos[editTodoIndex] = updatedTodo; // console.log(updatedTodo);
 
-      return setTodos(updatedTodos);
+      setTodos(updatedTodos);
+      return discardEditHandler();
     }
 
     setTodos([...todos, {
@@ -38,17 +39,26 @@ function App() {
   function removeTodoHandler(todoId) {
     // console.log(todoId);
     const filteredTodos = todos.filter(todo => {
-      console.log(todoId, todo.id);
+      // console.log(todoId, todo.id);
       return todo.id !== todoId;
-    });
-    console.log(filteredTodos);
-    setTodos(filteredTodos);
+    }); // console.log(filteredTodos);
+
+    setTodos(filteredTodos); // discardEditHandler();
+
+    edit.id && discardEditHandler();
   }
 
   function editTodoHandler(todo) {
     // console.log(todo);
     setActivity(todo.activity);
     setEdit(todo);
+  }
+
+  function discardEditHandler() {
+    // console.log('discard edit');
+    setEdit({}); // for clear edit.id
+
+    setActivity('');
   }
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Simple To-Do List"), /*#__PURE__*/React.createElement("form", {
@@ -62,7 +72,10 @@ function App() {
     }
   }), /*#__PURE__*/React.createElement("button", {
     type: "submit"
-  }, edit.id ? 'Update' : 'Add')), /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
+  }, edit.id ? 'Update' : 'Add'), edit.id && /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: discardEditHandler
+  }, "Discard")), /*#__PURE__*/React.createElement("ul", null, todos.map(todo => {
     return /*#__PURE__*/React.createElement("li", {
       key: todo.id
     }, todo.activity, ' ', /*#__PURE__*/React.createElement("button", {

@@ -28,8 +28,9 @@ function App() {
       updatedTodos[editTodoIndex] = updatedTodo;
       // console.log(updatedTodo);
 
+      setTodos(updatedTodos);
 
-      return setTodos(updatedTodos);
+      return discardEditHandler();
     }
     setTodos([
       ...todos,
@@ -46,18 +47,27 @@ function App() {
   function removeTodoHandler(todoId) {
     // console.log(todoId);
     const filteredTodos = todos.filter((todo) => {
-      console.log(todoId, todo.id);
+      // console.log(todoId, todo.id);
       return todo.id !== todoId;
     });
 
-    console.log(filteredTodos);
+    // console.log(filteredTodos);
     setTodos(filteredTodos);
+
+    // discardEditHandler();
+    edit.id && discardEditHandler();
   }
 
   function editTodoHandler(todo) {
     // console.log(todo);
     setActivity(todo.activity);
     setEdit(todo);
+  }
+
+  function discardEditHandler() {
+    // console.log('discard edit');
+    setEdit({}); // for clear edit.id
+    setActivity('');
   }
 
   return (
@@ -75,6 +85,9 @@ function App() {
         <button type='submit'>
           {edit.id ? 'Update' : 'Add'}
         </button>
+        {
+          edit.id && <button type='button' onClick={discardEditHandler}>Discard</button>
+        }
       </form>
 
       <ul>
