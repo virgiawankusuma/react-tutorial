@@ -4,6 +4,7 @@ function App() {
   const [activity, setActivity] = React.useState('');
   const [edit, setEdit] = React.useState({});
   const [todos, setTodos] = React.useState([]);
+  const [message, setMessage] = React.useState('');
 
   function generateId() {
     return Date.now();
@@ -11,6 +12,9 @@ function App() {
 
   function saveTodoHandler(e) {
     e.preventDefault(); // console.log(activity);
+    // empty field validation 
+
+    if (!activity) return setMessage('The field can\'t be blank');
 
     if (edit.id) {
       // console.log('edit');
@@ -63,7 +67,12 @@ function App() {
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Simple To-Do List"), /*#__PURE__*/React.createElement("form", {
     onSubmit: saveTodoHandler
-  }, /*#__PURE__*/React.createElement("input", {
+  }, message && /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'red',
+      display: 'block'
+    }
+  }, message), /*#__PURE__*/React.createElement("input", {
     type: "text",
     placeholder: "Activity name..",
     value: activity,
