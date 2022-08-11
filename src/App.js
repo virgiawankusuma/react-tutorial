@@ -6,6 +6,8 @@ import AboutTeam from './AboutTeam';
 import Blog from './Blog';
 import BlogDetail from './BlogDetail';
 import NotFound from './NotFound';
+import Login from './Login';
+import Dashboard from './Dashboard';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         </Route>
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogDetail />} />
+        <Route path="login" element={<Login />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
