@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return(
@@ -8,7 +8,6 @@ export default function About() {
       <ul>
         <li><Link to="/about/team">Team</Link></li>
       </ul>
-      <Outlet/>
     </>
   );
 }
