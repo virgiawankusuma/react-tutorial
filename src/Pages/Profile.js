@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
+
 export default function Profile() {
+
+  useEffect(function () {
+    document.title = 'Profile - Website Virgiawwan';
+  }, []);
+
   return (
     <section className="section">
       <h1 className="section-title">Profile page</h1>

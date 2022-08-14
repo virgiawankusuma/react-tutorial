@@ -10,22 +10,23 @@ export default function BlogDetail() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(function () {
-
+    
     async function getArticle() {
       const request = await fetch(`https://api.spaceflightnewsapi.net/v3/articles/${params.id}`);
-
+      
       if(!request.ok) {
         setLoading(false);
         return setNotFound(true);
       }
-
+      
       const response = await request.json();
+      document.title = `${response.title} - Website Virgiawwan`;
 
       setArticle(response);
       setLoading(false);
     }
     getArticle();
-  }, [params.id]);
+  }, [article.title, params.id]);
 
   // return console.log(article);
 

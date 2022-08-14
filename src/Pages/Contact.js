@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
+
 export default function Contact() {
+
+  useEffect(function () {
+    document.title = 'Contact - Website Virgiawwan';
+  }, []);
+
   return ( 
     <section className="section">
       <h1 className="section-title">Contact page</h1>
