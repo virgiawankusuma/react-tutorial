@@ -17,17 +17,17 @@ export default function Blog() {
   }, []);
 
   return (
-    <section>
-      <h1>Blog page</h1>
-      <p>Berikut ini adalah tulisan-tulisanku (tapi bo'ong): </p>
+    <section className="section">
+      <h1 className="section-title">Blog page</h1>
+      <p className="section-description">Berikut ini adalah tulisan-tulisanku (tapi bo'ong): </p>
       {loading ? <p>Loading articles..</p> : (
-        <div>
+        <div className="articles">
           {
             articles.map(function(article) {
               return (
-                <article key={article.id}>
-                  <h2><Link to={`/blog/${article.id}`}>{article.title}</Link></h2>
-                  <time>{new Date(article.publishedAt).toLocaleDateString()}</time>
+                <article key={article.id} className="article-item">
+                  <h2 className="article-title"><Link to={`/blog/${article.id}`}>{article.title}</Link></h2>
+                  <time className="article-time">{new Date(article.publishedAt).toLocaleDateString()}</time>
                 </article>
               )
             })

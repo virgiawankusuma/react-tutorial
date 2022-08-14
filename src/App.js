@@ -9,20 +9,15 @@ import BlogDetail from './Pages/BlogDetail';
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
+    <div className="app">
+      <div className="brand">
+        Website Virgiawwan
+      </div>
+      <nav className="nav">
+        <Link to="/" className="nav-item">Home</Link>
+        <Link to="/profile" className="nav-item">Profile</Link>
+        <Link to="/blog" className="nav-item">Blog</Link>
+        <Link to="/contact" className="nav-item">Contact</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />

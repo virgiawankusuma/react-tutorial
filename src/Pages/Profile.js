@@ -1,8 +1,8 @@
 export default function Profile() {
   return (
-    <section>
-      <h1>Profile page</h1>
-      <p>Halo namaku virgiawan, aku adalah seorang web developer yang belum lulus dari MIT!</p>
+    <section className="section">
+      <h1 className="section-title">Profile page</h1>
+      <p className="section-description">Halo namaku virgiawan, aku adalah seorang web developer yang belum lulus dari MIT!</p>
     </section>
   );
 }

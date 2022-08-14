@@ -34,19 +34,19 @@ export default function BlogDetail() {
   }
 
   return(
-    <section>
+    <section className="section">
       {loading ? <p>Loading article..</p> : (
         <div>
-          <article key={article.id}>
-            <h1>{article.title}</h1>
-            <time style={{display:'block'}}>{new Date(article.publishedAt).toLocaleDateString()}</time>
+          <article key={article.id} className="article-item">
+            <h1 className="article-title">{article.title}</h1>
+            <time className="article-time">{new Date(article.publishedAt).toLocaleDateString()}</time>
             <img 
               src={article.imageUrl} 
-              alt={article.title} 
-              style={{maxWidth: '50%'}}
+              alt={article.title}
+              className="article-image"
               />
-            <p>{article.summary}</p>
-            <p>Source: <a href={article.url} target="_blank" rel="noreferrer">{article.newsSite}</a></p>
+            <p className="article-summary">{article.summary}</p>
+            <p className="article-source">Source: <a href={article.url} target="_blank" rel="noreferrer">{article.newsSite}</a></p>
           </article>
         </div>
       )}
