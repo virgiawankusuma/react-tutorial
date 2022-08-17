@@ -1,6 +1,6 @@
 # React Tutorial by **array id**
-[Belajar React JS Dari Awal Buat Yang Nggak Jago JavaScript](https://www.youtube.com/watch?v=JS5w4rUbjQE).
-[Belajar React Context: Dependency Injection & State Management (React JS Advanced)](https://youtu.be/k3vrtOQ3Q4k).
+1. [Belajar React JS Dari Awal Buat Yang Nggak Jago JavaScript](https://www.youtube.com/watch?v=JS5w4rUbjQE).  
+2. [Belajar React Context: Dependency Injection & State Management (React JS Advanced)](https://youtu.be/k3vrtOQ3Q4k).  
 
 List of Branch:
 - [Chapter 1 – The Basics](https://github.com/virgiawankusuma/react-tutorial/tree/Chapter-1).  
