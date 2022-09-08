@@ -1,24 +1,21 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import { Routes, Route} from 'react-router-dom';
-
-import Home from './Pages/Home';
-import Profile from './Pages/Profile';
-import Blog from './Pages/Blog';
-import Contact from './Pages/Contact';
-import BlogDetail from './Pages/BlogDetail';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 function App() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const user = {
+      name: 'John Doe',
+      avatar: 'https://randomuser.me/api/portraits/men/75.jpg'
+    };
+
+    setUser(user);
+  }, []);
   return (
     <div className="app">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <Navbar user={user} />
     </div>
   );
 }

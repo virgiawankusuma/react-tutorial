@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom';
+import NavbarLink from './NavbarLink';
+import NavbarUser from './NavbarUser';
 
 export default function Navbar() {
   return(
-    <nav className="nav">
-      <Link to="/" className="nav-item">Home</Link>
-      <Link to="/profile" className="nav-item">Profile</Link>
-      <Link to="/blog" className="nav-item">Blog</Link>
-      <Link to="/contact" className="nav-item">Contact</Link>
+    <nav>
+      <NavbarLink>Dashboard</NavbarLink> | <NavbarLink>Products |</NavbarLink>
+      <NavbarLink>
+        <NavbarUser />
+      </NavbarLink>
     </nav>
   )
 }
