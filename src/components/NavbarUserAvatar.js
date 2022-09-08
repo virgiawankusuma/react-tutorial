@@ -1,3 +1,3 @@
-export default function NavbarUserAvatar() {
-  return <img src="/" alt="avatar" width={50}/>
+export default function NavbarUserAvatar(props) {
+  return <img src={props.user.avatar} alt="avatar" width={50}/>
 }

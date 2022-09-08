@@ -1,3 +1,3 @@
-export default function NavbarUserText() {
-  return <span>Hi, User!</span>
+export default function NavbarUserText(props) {
+  return <span>Hi, {props.user.name}!</span>
 }
