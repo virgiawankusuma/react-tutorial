@@ -1,17 +1,26 @@
 import { useReducer } from 'react';
 
 function reducer(state, action) {
-  console.log(state, action);
+  switch (action) {
+    case 'increment' :
+      return state + 1;
+    case 'decrement' :
+      return state - 1;
+    default:
+      throw new Error(
+        `Action type ${action} not supported.`
+      );
+  }
 }
 
 export default function Reducer() {
-  const [count, setCount ] = useReducer(reducer, 'ini adalah state');
+  const [count, setCount ] = useReducer(reducer, 0);
 
   return(
     <>
-      <button onClick={() => setCount(count-1)}>-</button>
+      <button onClick={() => setCount('decrement')}>-</button>
       <span>{count}</span>
-      <button onClick={() => setCount('ini adalah action')}>+</button>
+      <button onClick={() => setCount('increment')}>+</button>
     </>
   )
 }
