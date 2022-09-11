@@ -1,11 +1,11 @@
 import { useReducer } from 'react';
 
 function reducer(state, action) {
-  switch (action) {
+  switch (action.type) {
     case 'increment' :
-      return state + 1;
+      return state + action.payload;
     case 'decrement' :
-      return state - 1;
+      return state - action.payload;
     default:
       throw new Error(`Action type '${action}' not supported.`);
   }
@@ -16,9 +16,9 @@ export default function Reducer() {
 
   return(
     <>
-      <button onClick={() => setCount('decrement')}>-</button>
+      <button onClick={() => setCount({ type: 'decrement', payload: 2})}>-</button>
       <span>{count}</span>
-      <button onClick={() => setCount('increment')}>+</button>
+      <button onClick={() => setCount({ type: 'increment', payload: 2})}>+</button>
     </>
   )
 }
