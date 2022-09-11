@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
+
+function reducer(state, action) {
+  console.log(state, action);
+}
 
 export default function Reducer() {
-  const [count, setCount ] = useState(0);
+  const [count, setCount ] = useReducer(reducer, 'ini adalah state');
 
   return(
     <>
-      <button onClick={() => count > 0 && setCount(count-1)}>-</button>
+      <button onClick={() => setCount(count-1)}>-</button>
       <span>{count}</span>
-      <button onClick={() => setCount(count+1)}>+</button>
+      <button onClick={() => setCount('ini adalah action')}>+</button>
     </>
   )
 }
