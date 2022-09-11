@@ -13,6 +13,7 @@ export default function Setting() {
         });
       }}
       placeholder="Enter your name"
+      value={context.user.name ?? ''}
     />
   );
 }
