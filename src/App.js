@@ -1,14 +1,16 @@
 import './App.css';
-import DisplayTheme from './components/DisplayTheme';
-import Navbar from './components/Navbar';
-import Setting from './components/Setting';
-import ToggleTheme from './components/ToggleTheme';
-import { AppProvider } from './context/app-context';
+import Reducer from './components/Reducer';
+// import DisplayTheme from './components/DisplayTheme';
+// import Navbar from './components/Navbar';
+// import Setting from './components/Setting';
+// import ToggleTheme from './components/ToggleTheme';
+// import { AppProvider } from './context/app-context';
 
 function App() {
   return (
     <div className="app">
-      <AppProvider>
+      <Reducer />
+      {/* <AppProvider>
         <Navbar />
         <hr />
         <Setting />
@@ -16,7 +18,7 @@ function App() {
         <DisplayTheme />
         <hr />
         <ToggleTheme />
-      </AppProvider>
+      </AppProvider> */}
     </div>
   );
 }
