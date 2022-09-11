@@ -7,9 +7,7 @@ function reducer(state, action) {
     case 'decrement' :
       return state - 1;
     default:
-      throw new Error(
-        `Action type ${action} not supported.`
-      );
+      throw new Error(`Action type '${action}' not supported.`);
   }
 }
 
